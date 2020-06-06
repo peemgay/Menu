@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pbC-Yb-kwa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Menu Table View Controller-->
         <scene sceneID="cb2-40-hho">
             <objects>
-                <tableViewController id="pbC-Yb-kwa" sceneMemberID="viewController">
+                <tableViewController id="pbC-Yb-kwa" customClass="MenuTableViewController" customModule="Menu" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6oJ-Yv-2HS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="1Pp-Gb-baH">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Nooddle</string>
+                                <string>Rice</string>
+                            </scopeButtonTitles>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="99" id="S6L-a2-jJ4">
-                                <rect key="frame" x="0.0" y="28" width="414" height="99"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="99" id="S6L-a2-jJ4" customClass="TableCell" customModule="Menu" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="84" width="414" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S6L-a2-jJ4" id="YCj-c5-UwW">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jOI-Yi-ecM">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jOI-Yi-ecM">
                                             <rect key="frame" x="20" y="9" width="87" height="79"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="79" id="5N9-0K-oah"/>
+                                                <constraint firstAttribute="width" constant="87" id="jvR-De-6NQ"/>
+                                                <constraint firstAttribute="width" secondItem="jOI-Yi-ecM" secondAttribute="height" multiplier="87:79" id="yMR-vy-Ir8"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xoa-MF-HP8">
                                             <rect key="frame" x="115" y="9" width="127" height="28"/>
@@ -52,10 +65,22 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="jOI-Yi-ecM" secondAttribute="bottom" constant="11" id="2BG-pk-KjS"/>
+                                        <constraint firstItem="jOI-Yi-ecM" firstAttribute="leading" secondItem="YCj-c5-UwW" secondAttribute="leading" constant="20" id="IMP-9c-ncf"/>
+                                        <constraint firstItem="jOI-Yi-ecM" firstAttribute="top" secondItem="YCj-c5-UwW" secondAttribute="top" constant="9" id="WAj-cO-XpG"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="description" destination="lvM-4q-DiD" id="bJV-KI-isK"/>
+                                    <outlet property="foodnameOne" destination="Xoa-MF-HP8" id="ce5-Nf-Gc9"/>
+                                    <outlet property="imgView" destination="jOI-Yi-ecM" id="7tg-wQ-Orb"/>
+                                    <outlet property="info" destination="lvM-4q-DiD" id="vn3-1f-HC7"/>
+                                    <outlet property="nameFoodTitleOne" destination="Xoa-MF-HP8" id="Qn5-Lf-JYI"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="68" id="hhC-dH-1Tb">
-                                <rect key="frame" x="0.0" y="127" width="414" height="68"/>
+                                <rect key="frame" x="0.0" y="183" width="414" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hhC-dH-1Tb" id="2wm-uR-lPw">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
@@ -70,14 +95,19 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="pbC-Yb-kwa" id="6E4-Bd-gcj"/>
-                            <outlet property="delegate" destination="pbC-Yb-kwa" id="EOz-sv-eKq"/>
+                            <outlet property="dataSource" destination="pbC-Yb-kwa" id="fZM-d2-JEM"/>
+                            <outlet property="delegate" destination="pbC-Yb-kwa" id="fO1-9q-5Qw"/>
+                            <outlet property="prefetchDataSource" destination="pbC-Yb-kwa" id="d4h-lT-heu"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="1Pp-Gb-baH" id="xZL-Hw-QFU"/>
+                        <outlet property="table" destination="6oJ-Yv-2HS" id="02G-CH-cER"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNJ-xj-h4L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231.8840579710145" y="179.46428571428569"/>
+            <point key="canvasLocation" x="214" y="23"/>
         </scene>
     </scenes>
     <resources>
