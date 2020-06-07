@@ -12,12 +12,8 @@ class TableCell: UITableViewCell {
    
     @IBOutlet var imgView: UIImageView!
      @IBOutlet var foodnameOne: UILabel!
-    @IBOutlet var info: UILabel!
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @IBOutlet var info: UILabel!    
+        override func awakeFromNib() {        super.awakeFromNib()
         // Initialization code
     }
 
